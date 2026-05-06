@@ -1348,9 +1348,8 @@ function submitForm() {
     `Fecha de registro: ${data.fechaRegistro}`,
   ];
 
-  const subject = encodeURIComponent(`⛳ Nuevo alumno Golf Performance — ${data.nombre || 'Sin nombre'} (HCP ${data.hcp || '?'})`);
-  const body = encodeURIComponent(lines.join('\n'));
-  const mailto = `mailto:diazjavierme@gmail.com?subject=${subject}&body=${body}`;
+  const waText = encodeURIComponent(lines.join('\n'));
+  const waURL = `https://wa.me/34660808725?text=${waText}`;
 
   // Show success
   document.getElementById('navButtons').style.display = 'none';
@@ -1373,8 +1372,8 @@ function submitForm() {
   sd.innerHTML = rows.map(([k,v]) => `<div class="data-row"><span class="key">${k}</span><span class="val">${v}</span></div>`).join('');
   document.getElementById('successScreen').classList.add('show');
 
-  // Open mail client
-  window.location.href = mailto;
+  // Open WhatsApp
+  window.open(waURL, '_blank');
 }
 
 // ── INIT ──
